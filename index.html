@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Scoring App</title>
+  <style>
+    body { font-family: Arial; background: #f4f4f4; padding: 50px; text-align: center; }
+    .form-container { background: #fff; padding: 30px; border-radius: 10px; display: inline-block; }
+    input[type="number"] { padding: 8px; margin: 10px 0; width: 100%; }
+    button { padding: 10px 20px; background: #007BFF; color: #fff; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Credit Scoring Form</h2>
+  <div class="form-container">
+    <form action="/predict" method="POST">
+      {% for feature in features %}
+        <label>{{ feature.replace("_", " ") }}</label><br>
+        <input type="number" step="any" name="{{ feature }}" required><br>
+      {% endfor %}
+      <button type="submit">Predict</button>
+    </form>
+  </div>
+</body>
+</html>
